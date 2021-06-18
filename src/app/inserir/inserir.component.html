@@ -1,0 +1,42 @@
+<form class="example-form margin-10" [formGroup]="formElement">
+  <table class="example-full-width " cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>No.</mat-label>
+          <input class="positionInput alignRight" name="position" id="position" matInput #number maxlength="3"
+            formControlName="position">
+          <mat-hint align="end">{{number.value.length}} / 3</mat-hint>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input class="nameInput" matInput name="name" id="name" formControlName="name">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Weight</mat-label>
+          <input class="weightInput alignRight" matInput name="weight" id="weight" formControlName="weight">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Symbol</mat-label>
+          <input class="symbolInput" matInput name="symbol" id="symbol" #symbol maxlength="2" formControlName="symbol">
+          <mat-hint align="end">{{symbol.value.length}} / 2</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<div class="demo-button-container margin-10">
+  <button mat-raised-button class="demo-button" (click)="handleAddElement()" [disabled]="!formElement.valid">
+    Add data
+  </button>
+  <button mat-raised-button class="demo-button" (click)="handleRemoveLastElement()">
+    Remove data
+  </button>
+</div>
